@@ -7,8 +7,8 @@
         "plan": "standard",
         "credentials": {
           "url": "https://stream.watsonplatform.net/speech-to-text/api",
-          "username": "USERNAME",
-          "password": "PASSWORD"
+          "username": "9bc30d34-4073-48de-bb7f-74232491f06b",
+          "password": "jHUVDVOmM7Uo"
         }
       }
     ],
@@ -16,12 +16,12 @@
       {
         "name": "rtt-tone-analyzer",
         "label": "tone_analyzer",
-        "plan": "beta",
+        "plan": "standard",
         "credentials": {
           "url": "https://gateway.watsonplatform.net/tone-analyzer-beta/api",
           "isStreaming": false,
-          "username": "USERNAME",
-          "password": "PASSWORD"
+          "username": "f6e95bdb-6150-4a37-8d43-5d2d791c433e",
+          "password": "LwBUeLKZgaBE"
         }
       }
     ]
