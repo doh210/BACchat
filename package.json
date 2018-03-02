@@ -1,22 +1,23 @@
 {
-	"name": "realtime-tone",
-	"version": "1.1.0",
-	"description": "Analyze the tone of spoken words in real time using Bluemix and Watson",
-	"scripts": {
-		"start": "node app.js",
-    "build": "browserify src/index.js | uglifyjs -nc > public/js/index.js",
+  "name": "realtime-tone",
+  "version": "1.1.0",
+  "description": "Analyze the tone of spoken words in real time using Bluemix and Watson",
+  "scripts": {
+    "start": "node app.js",
+    "build": "browserify src/index.js | uglifyjs --no-copyright > public/js/index.js",
     "watch": "watchify -v -d -o public/js/index.js src/index.js",
     "postinstall": "bower install --alow-root && gulp"
-	},
-	"dependencies": {
-		"express": "4.13.x",
+  },
+  "dependencies": {
     "body-parser": "1.14.x",
-    "watson-developer-cloud": "1.8.x",
-		"cfenv": "1.0.x",
     "bower": "1.6.x",
+    "cf-deployment-tracker-client": "0.0.x",
+    "cfenv": "1.0.x",
+    "express": "4.13.x",
     "gulp": "3.5.x",
-    "cf-deployment-tracker-client": "0.0.x"
-	},
+    "uglify-js": "^1.3.5",
+    "watson-developer-cloud": "1.8.x"
+  },
   "devDependencies": {
     "browserify": "^12.0.1",
     "browserify-shim": "^3.8.12",
@@ -38,9 +39,9 @@
       "browserify-shim"
     ]
   },
-	"engines": {
-		"node": "0.12.x"
-	},
+  "engines": {
+    "node": "0.12.x"
+  },
   "author": "IBM Corp.",
   "contributors": [
     {
