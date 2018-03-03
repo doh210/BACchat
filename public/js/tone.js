@@ -51,6 +51,39 @@ function toneCallback(data) {
       tone.sentence = getTones(data.sentences_tone[data.sentences_tone.length - 1]);
 
   // Update Smoothie.js chart
+  console.log("this is the tone", tone)
+
+  var emotion = tone.document.emotion
+  var language = tone.document.language
+  var social = tone.document.social
+
+  var mlData = []
+  mlData.push(emotion.anger)
+  mlData.push(emotion.disgust)
+  mlData.push(emotion.fear)
+  mlData.push(emotion.joy)
+  mlData.push(emotion.sadness)
+
+  mlData.push(language.analytical)
+  mlData.push(language.confident)
+  mlData.push(language.tentative)
+
+
+  mlData.push(social.agreeableness_big5)
+  mlData.push(social.conscientiousness_big5)
+  mlData.push(social.emotional_range_big5)
+  mlData.push(social.extraversion_big5)
+  mlData.push(social.openness_big5)
+
+  console.log(mlData)
+
+
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:5000/api/v1/drunk",
+    data: {mlData}
+  })
+
   toneChart.plotValues(tone);
 }
 
