@@ -92,6 +92,13 @@ var initSocket = exports.initSocket = function(options, onopen, onlistening, onm
   };
 
   socket.onclose = function(evt) {
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:5000/api/v1/drunk?done=true",
+    }).done(function(response) {
+      console.log("got a response", response )
+    })
+
     console.log('WS onclose: ', evt);
     if (evt.code === 1006) {
       // Authentication error, try to reconnect

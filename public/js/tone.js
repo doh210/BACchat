@@ -51,6 +51,7 @@ function toneCallback(data) {
       tone.sentence = getTones(data.sentences_tone[data.sentences_tone.length - 1]);
 
   // Update Smoothie.js chart
+//  tone.document.emotion["drunk"] = 50
   console.log("this is the tone", tone)
 
   var emotion = tone.document.emotion
@@ -74,9 +75,6 @@ function toneCallback(data) {
   mlData.push(social.emotional_range_big5)
   mlData.push(social.extraversion_big5)
   mlData.push(social.openness_big5)
-
-  console.log(mlData)
-
 
   $.ajax({
     type: "POST",
