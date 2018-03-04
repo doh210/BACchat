@@ -4346,6 +4346,14 @@ a.list-group-item-danger.active:focus {
   border-top-left-radius: 0px;
   border-bottom: 4px solid #4178BE; /*blue 50*/
 }
+.panel-results-heading {
+  margin-top: 1em;
+  border-top: 4px solid #014a2c;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom: 4px solid #014a2c;
+  text-align: center;
+}
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit;
 }
