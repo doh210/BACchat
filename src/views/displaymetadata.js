@@ -58,7 +58,7 @@ var showMetaData = function(alternative) {
     $.ajax({
       type: "POST",
       url: "http://localhost:5000/api/v1/drunk?confidence=true",
-      data: {hi}
+      data: {confidenceArray: confidenceArray}
     });
 
     return;
