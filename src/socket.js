@@ -2,8 +2,7 @@
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -98,6 +97,8 @@ var initSocket = exports.initSocket = function(options, onopen, onlistening, onm
     }).done(function(response) {
       console.log("got a response", response )
     })
+
+    $("#displaybox").text("Loading")
 
     console.log('WS onclose: ', evt);
     if (evt.code === 1006) {
