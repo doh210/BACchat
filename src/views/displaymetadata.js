@@ -51,13 +51,15 @@ var showMetaData = function(alternative) {
       confidenceArray.push(confidences[1]);
     }
 
-    // console.log("wordConfidenceArray:", confidenceArray);
+    console.log("wordConfidenceArray:", confidenceArray);
+
+    var hi = "hi";
 
     $.ajax({
       type: "POST",
       url: "http://localhost:5000/api/v1/drunk?confidence=true",
-      data: {confidenceArray}
-    })
+      data: {hi}
+    });
 
     return;
 
