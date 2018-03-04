@@ -41,12 +41,26 @@ var showMetaData = function(alternative) {
   var confidenceNestedArray = alternative.word_confidence;
   var timestampNestedArray = alternative.timestamps;
   if (confidenceNestedArray && confidenceNestedArray.length > 0) {
+    var confidenceArray = [];
+
     for (var i = 0; i < confidenceNestedArray.length; i++) {
       var timestamps = timestampNestedArray[i];
       var confidences = confidenceNestedArray[i];
       showTimestamp(timestamps, confidences);
+
+      confidenceArray.push(confidences[1]);
     }
+
+    // console.log("wordConfidenceArray:", confidenceArray);
+
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:5000/api/v1/drunk?confidence=true",
+      data: {confidenceArray}
+    })
+
     return;
+
   } else {
     if (timestampNestedArray && timestampNestedArray.length > 0) {
       timestampNestedArray.forEach(function(timestamp) {
