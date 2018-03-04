@@ -1,4 +1,8 @@
-# real-time-tone-analysis Overview
+# BACchat Overview
+
+Our BACchat application is adapted from *Real Time Tone Analysis* on [Github][real_time_github_url].
+
+***
 
 Real Time Tone Analysis samples dictation or conversations and displays a real-time transcription and an accompanying chart that plots the emotional, social, and writing tone of the language.
 
@@ -8,9 +12,7 @@ The project is an experiment that combines the Watson [Speech to Text][speech_se
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
-![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/cd3110eb8720f2a4e4f8c8c53ce934e9/badge.svg)
-
-There are many real world opportunities for combining these services. For example in call centers, offering instant feedback to operators, so that they can measure and control their response, or companies that run call centres to be concsious of repsonse levels over time.
+There are many real world opportunities for combining these services. For example in call centers, offering instant feedback to operators, so that they can measure and control their response, or companies that run call centers to be conscious of response levels over time.
 
 The same combination of technology might be used personally to help an individual learn about their engagement and responses and manage it for themselves. This becomes especially interesting when tying the technology to other data sources, for example health data.
 
@@ -128,7 +130,7 @@ This data is collected from the VCAP_APPLICATION environment variable in IBM Blu
 
 Deployment tracking can be disabled by removing `require("cf-deployment-tracker-client").track();` from the beginning of the `app.js` file.
 
-
+[real_time_github_url]: https://github.com/IBM-Bluemix/real-time-tone-analysis/
 [speech_service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/speech-to-text.html
 [speech_service_bluemix_url]: https://console.ng.bluemix.net/catalog/services/speech-to-text/
 [tone_service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tone-analyzer.html
