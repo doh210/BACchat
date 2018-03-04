@@ -96,6 +96,11 @@ var initSocket = exports.initSocket = function(options, onopen, onlistening, onm
       url: "http://localhost:5000/api/v1/drunk?done=true",
     }).done(function(response) {
       console.log("got a response", response )
+      if (response.isDrunk) {
+        $("#displaybox").text("You are drunk")
+      } else {
+        $("#displaybox").text("You are sober")
+      }
     })
 
     $("#displaybox").text("Loading")
