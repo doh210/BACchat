@@ -22,6 +22,7 @@ var showError = require('./showerror').showError;
 
 exports.initRecordButton = function(ctx) {
 
+
   var recordButton = $('#recordButton');
 
   recordButton.click((function() {

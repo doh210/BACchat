@@ -22,6 +22,7 @@ html {
 
 .navbar {
     cursor: pointer;
+
 }
 
 .nav-label {
@@ -39,13 +40,13 @@ html {
 
 @media (min-width: 500px) {
     .nav-inverse-color {
-        width: 50%;
+        width: 33.33%;
     }
 }
 
 @media (min-width: 730px) {
     .nav-inverse-color {
-        width: 25%;
+        width: 33.33%;
     }
 }
 
@@ -119,9 +120,9 @@ ol ol li:last-child {
 .top {
     margin: 0;
     padding: 0;
-    background: #dd4131;
+    background: #014a2c;
     height: 100px;
-    border-bottom: 4px solid #f3776b;
+    /* border-bottom: 8px solid #a53825; */
     display: flex;
     flex-direction: column;
     align-items: center;

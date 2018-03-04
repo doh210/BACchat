@@ -24,7 +24,7 @@ function saveData(){
 	};
 
 	//POST request to API
-	$.post( "http://nodejsloopbackapi.mybluemix.net/api/items", dataToSend,function( data ) {
+	$.post( "http://nodejsloopbackapi.mybluemix.net/api/items", dataToSend, function( data ) {
 	  console.log("Save result:", data );
 	}).fail(function() {
     alert( "Error saving data" );
