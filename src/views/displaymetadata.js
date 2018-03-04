@@ -53,11 +53,9 @@ var showMetaData = function(alternative) {
 
     console.log("wordConfidenceArray:", confidenceArray);
 
-    var hi = "hi";
-
     $.ajax({
       type: "POST",
-      url: "http://localhost:5000/api/v1/drunk?confidence=true",
+      url: "http://localhost:5000/api/v1/confidence",
       data: {confidenceArray: confidenceArray}
     });
 
