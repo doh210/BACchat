@@ -40,10 +40,21 @@ exports.initDragDrop = function(ctx) {
     handleFileUploadEvent(evt);
   });
 
+  $('.upload-audio-file').click(function (e) {
+    e.preventDefault();
+    // Handle dragged file event
+    $('.upload-input').trigger("click");
+
+    $('.upload-input').change(function () {
+        var file = $('.upload-input')[0].files[0];
+        handleSelectedFile(ctx.token, file);
+    });
+  });
+
   function handleFileUploadEvent(evt) {
-    // Init file upload with default model
-    var file = evt.dataTransfer.files[0];
-    handleSelectedFile(ctx.token, file);
+      // Init file upload with default model
+      var file = evt.dataTransfer.files[0];
+      handleSelectedFile(ctx.token, file);
   }
 
 };
