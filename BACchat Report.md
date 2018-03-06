@@ -1,86 +1,97 @@
-Samuel Lee, David Oh, Elisabeth Pillsbury | March 5th, 2018
-##COSC 89 Final Project: BACchat
-######Overview:
+######COSC 89
 
-Given an audio sample, our application uses Machine Learning and Watson’s Speech to Text and Tone Analyzer services to determine whether or not an individual is inebriated. There are two ways to analyze speech: you may either upload a pre-recorded sample or record yourself live. 
+######Assignment 3
 
-While we transcribe the audio, we analyze it in real time for various emotional, lingual, and social parameters. It analyzes an audio clip sentence by sentence so it takes a little while for the data to show up on our plot here. When the clip finishes, we run it through our classifier and display the conclusion. 
+######Samuel Lee, David Oh, and Elisabeth Pillsbury
 
-######Business model & motivation:
+######March 5th, 2018
 
-BACchat is a web application that uses cognitive computing to deduce whether a person is drunk or sober by their speech. While breathalyzers already exist, they are not as readily available and nearly as fun to use as detecting drunkenness by speech alone. This is where BACchat comes in. We plan on making BACchat a free service that is readily available to anyone from bartenders to undergraduate college students.
+##Team Emmental: BACchat
 
-######Knowledge sources:
+**Overview:**
 
-* ML 
-Because of the large number of machine learning tutorials and support avaliable in python, we decided to do our machine learning in python3 using scikit learn. 
-We followed the tutorial at `https://www.digitalocean.com/community/tutorials/how-to-build-a-machine-learning-classifier-in-python-with-scikit-learn` to get us started. Using this tutorial we were able to structure our data in a similar way. 
+Given a speech sample, our web application leverages machine learning and Watson’s Speech-to-Text and Tone Analyzer services to determine whether or not an individual is inebriated. 
 
-A problem that we ran into getting our python machine learning code to interact with our javascript. Using flask, we set up a simple python api that would gather our data. We heavily used stackoverflow for trouble shooting and help to set up this api.
+There are two ways to use our application; you may either upload a pre-recorded sample or record yourself live. As BACchat transcribes the audio, it scores it in real time for various emotional, lingual, and social attributes: anger, disgust, fear, joy, sadness, analytical, confident, tentative, agreeableness, conscientiousness, emotional range, extraversion, and openness. BACchat also logs a confidence rating for the transcription of each word. 
 
-* We adapted BACchat from an open source demo on Github called Real Time Tone Analyzer which was developed by IBM. We made further modifications to integrate our machine learning module, display the results, and upload a pre-recorded audio sample for analysis.
+When the audio clip finishes, BACchat compiles and sends these word confidence ratings and attribute scores to our machine learning module. Finally, BACchat runs this sample through the custom classifier and returns a diagnosis: "You are sober" or "You are drunk".
 
-######Tools & techniques:
+**Business model & motivation:**
 
-* watson tone analyzer
-* watson speech-to-text
-* gaussian naive bayes algorithm
-	* In order to train our own classifier, we used the Gaussian Naive Bayes machine learning algorithm on 60 training audio samples gathered from YouTube and a corpus of sober speech recordings from UCSB ranging in length from 20 to 60 seconds -- 30 sample recordings were of sober individuals, and 30 were drunk.
+BACchat uses cognitive computing to deduce whether a person is drunk or sober by their speech. Although breathalyzers already exist, they are not as readily available as an internet-enabled device. This is where BACchat comes in. We plan on making BACchat a free service that is readily available via the web to anyone from bartenders to undergraduate college students.
 
-######Organization (how you planned the effort):
+#**@DAVID - would you fill out this section with another blurb or two?**
 
-* Data collection 
-David and Elisabeth worked on searching the internet for clips of both drunk and sober individuals, converting them to audio files, and then running the data through the application to get the tone analyzed data to train the classifier.
+**Knowledge sources:**
 
-* Machine Learning API and Javascript interaction
-Sam did the work for figuring out how to create a classifier using python and sklearn. He organized the training data into proper file formats so that it could be fed into sklearn. He also set up the python API using flask and handled the interaction of finding of tone analysis information in the Javascript frontend and sending it to the backend. 
+* Because a large number of machine learning tutorials and support is avaliable in Python, we decided to follow [this online tutorial][ml_tutorial_url] and use Python3 to build our machine learning model and classifier.
+* From the beginning, Professor Palmer was very helpful in lending advice on how to approach this project and where to source our audio samples.
+* Throughout this process, we regularly referenced [StackOverflow][stackoverflow_url] for trouble shooting and help to set up our web application, API, and machine learning classifier.
 
-* Adopting the application 
-Elisabeth did a bit of the front end styling to help give the app a more customized feel.
+**Tools & techniques:**
 
-* Video
-David and Elisabeth worked on creating the video for the presentation.
+* We used [Scikit-learn][scikit_learn_url] to build our machine learning model and classifier.
+* We used [Flask][flask_url] to set up a simple Python API that transfers our data by bridging the gap between our JavaScript web application and Python3 machine learning classifier. 
+* We used Watson's [Speech-to-Text][speech_to_text_url] service to transcribe audio clips and log confidence ratings for each word transcription.
+* We used Watson's [Tone Analyzer][tone_analyzer_url] service to quantify a text sample in terms of thirteen emotional, lingual, and social attributes.
+* We used the Gaussian Naive Bayes machine learning algorithm to train our custom classifier on 60 training audio samples gathered from [YouTube][youtube_url] and a [corpus of sober speech recordings from UCSB][corpus_url] ranging in length from 20 to 60 seconds; 30 sample recordings were of sober individuals, and 30 were drunk.
 
-* Report
-Elisabeth and Sam worked on organizing the report.
+The skeleton of BACchat was built using an open source demo on Github called [Real Time Tone Analyzer][real_time_github_url], developed by IBM. We made further modifications listed below:
+
+* support uploading pre-recorded audio
+* customize frontend styling and layout
+* integrate our machine learning classifier using our API
+* display final diagnosis
+
+**Organization:**
+
+* *Data Collection:* David and Elisabeth gathered clips of both drunk and sober individuals, trimmed them to the appropriate length, converted them to WAV files, ran each sample through BACchat to retreive the word confidence and tone analysis data, and finally, formatted it correctly for classifier training.
+
+* *Machine Learning Classifier, API, and Javascript Integration:* Sam figured out how to create a classifier using Python and Scikit-learn. He organized the training data into the proper file format so that it could be fed into Scikit-learn. He also set up the Python API using Flask and figured out how to send the word confidence and tone analysis data gathered in the frontend through the API to the machine learning classifier.
+
+* *Frontend Web Application:* Elisabeth styled and customized the application's frontend and added file upload functionality.
+
+* *Video:* David (with help from Elisabeth) created the video for submission and presentation.
+
+* *Report:* All three team members wrote this report.
 
 
-######Difficulties encountered:
+**Difficulties encountered:**
 
-* Creating a classifier 
+* *Integrating JS and Python:* We knew that the machine learning portion of this project had to be written in Python. We looked into a couple of options such as spawning a child process from the Javascript. However, we found that setting up a simple API would be the most straightforward and correct way of integrating the two parts of our application.
 
-* Integrating JS and Python
-We knew that the machine learning almost had to take place in python. We looked into a couple of options such as spawning a child process from the Javascript. However, we found that setting up a simple api would be the most straightforward and correct way of integrating the two parts of our application.
+* *Sending data from JS to Python:*
+We dealt with significant difficulty when we tried to grab the word confidence and tone analysis data and send it to the machine learning classifier. 
 
-* Sending data from Javascript to Python 
-We dealt with significant difficulty when we tried to grab the tone analyzer data and word confidence data and send it the python machine learning api. We wanted the overall tone analysis of the audio clip but the application was configured such that the tone analyzer would request analysis from Watson after every sentence or so. However, after reading through the code, we found that the aggregate of the emotions of the current audio clip could be found. This aggregate was constantly getting updated. Further, there was no indication of when the aggregate was finished getting updated. 
-To work around this, we would send this aggregate to the python api as we recieved it from the tone analyzer. This is written to a file 'data.json'. While we never recieved an end signal from when the aggregate was finished updating, we did recieve an end signal from when the websocket that is used for the speech-to-text closed. On the websocket closure, we send a GET request to the api to read in the most recent aggregate data in the data.json and run the ML on it. 
+	We wanted the overall tone analysis of the audio clip but the application was configured such that the tone analyzer would request analysis from Watson after every sentence or so. However, after reading through the code, we found that the aggregate of the emotions of the current audio clip could be found. This aggregate was constantly getting updated. Further, there was no indication of when the aggregate was finished getting updated. 
+To work around this, we would send this aggregate to the Python API as we recieved it from the tone analyzer. This is written to a file `data.json`. While we never recieved an end signal when the aggregate was finished updating, we did recieve an end signal from the websocket that fires when the speech-to-text terminates. On the websocket closure, we send a GET request to the API to read in the most recent aggregate data in `data.json` and run the machine learning on it. 
 
-We also wanted to incorporate the word confidence score from the text-to-speech. This data also came in every sentence or so. We wanted to incorporate the overall confidence score for the entire audio clip. We did something similar where we send off the data as we get it and the api stores this data in a text file. However, because the Javascript aplication does not aggregate this data we must aggregate it on the api-side.
+	We also wanted to incorporate the word confidence score from the speech-to-text service. This data also came in every sentence or so. We wanted to incorporate the overall confidence score for the entire audio clip. We did something similar where we send off the data as we get it and the API stores this data in a text file. However, because the Javascript application does not aggregate this data we must aggregate it on the machine learning side.
 
-* gathering emotion data for entire doc
-* running app locally (lots of deprecated packages)
-* in using speech-to-text, we lose the tone of the speaker and don't get the best transcription
+**Fair assessment of the result:**
 
-######Fair assessment of the result:
+#**@DAVID - would you write this section? (maybe mention our 66% accuracy score and how this is successful for a proof of concept app?)**
 
-* 66% accuracy score
-* for a proof of concept, def impressive!
+**Improvements and further work:**
 
-######Improvements and further work:
-* larger training set
-Like any machine learning based system, more data is typically better. Here, because we are able to do the training of the model beforehand, the speed tradeoff is not very severe. Further, with our 60 samples, the time to train was less than 5 seconds.
+* *Larger Training Set:* Like any machine learning system, more data is typically better. In a future iteration, we would like to collect and train our model on more audio samples. Because we train the model beforehand, a larger dataset would not compromise the speed of BACchat. For reference, training on 60 samples took less than 5 seconds.
 
-* display confidence rating rather than a binary
-With the Gaussian Naive Bayes approach that we took, only a binary is returned (drunk, sober). However, if we implemented a different model such as a Support Vector Classification we may be able to get returned confidence scores back. Based on the documentation from the sklearn website, this would take a longer training time (n^4). 
+* *Display Diagnosis as Confidence Rating:* When classifying an audio sample, the Gaussian Naive Bayes algorithm only returns a binary (`[drunk, sober]`). However, if we implemented a different model, such as a Support Vector Classification, we may be able to return a confidence score. Based on the documentation from the Scikit-learn website, this method would take a longer to train (n^4). 
 
-* real test subjects (rather than youtube recordings)
-* introduce "training mode" to add to ml
+* *Record Real Test Subjects:* For our first stab at BACchat, we sourced our training audio files from Youtube and online speech corpuses. In a future iteration, we would like to gain permission from the IRB to gather interviews from human subjects, both drunk and sober.
 
-* Better text to speech
-We found in translating some of our audio files that the Watson text-to-speech was not fantastic at producing a true result. Errors in the text-to-speech translate to errors in the tone-analysis which translate to errors in the sober-drunk detection.
+* *Improved Speech-to-Text:* The Watson Speech-to-Text service is not robust; if the speaker is muffled or if there is background noise of any sort, the resulting transcription is quite inaccurate. Errors in the speech-to-text portion of our application translate to errors in the tone analysis portion which translate to errors in the sober vs. drunk detection process.
 
-* could include content analysis in our training data
-It might be interesting if we are able to take the overal content of what the person is talking about and add that as a feature to this machine learning. Maybe drunk people talk about food and puppies more often than sober people. Content analysis of what the audio clip is talking about is not avaliable with Watson but it would be an interesting avenue to explore.
+* *Addition of Content Analysis:* As an area of further research, it would be interesting to incorporate semantic content into our machine learning model. Perhaps drunk people talk about food and puppies more often than sober people. Currently, content analysis is not supported within Watson's Tone Analysis service but it would be an interesting avenue to explore in the future.
 
-* While BACchat is still in its early stages, we hope that it can be improved by adding training data, displaying a spectrum of drunkenness, and including a training mode so that it may even be used one day as a viable substitute for breathalyzers.
+While BACchat is still in its early stages, we hope that, with the addition of our suggestions above, it may become a viable substitute for breathalyzers.
+
+[ml_tutorial_url]: https://www.digitalocean.com/community/tutorials/how-to-build-a-machine-learning-classifier-in-python-with-scikit-learn
+[stackoverflow_url]: https://stackoverflow.com/
+[real_time_github_url]: https://github.com/IBM-Bluemix/real-time-tone-analysis/
+[scikit_learn_url]: http://scikit-learn.org/stable/
+[flask_url]: http://flask.pocoo.org/
+[tone_analyzer_url]: https://www.ibm.com/watson/services/tone-analyzer/
+[speech_to_text_url]: https://www.ibm.com/watson/services/speech-to-text/
+[corpus_url]: http://www.linguistics.ucsb.edu/research/santa-barbara-corpus#Recordings
+[youtube_url]: https://www.youtube.com/
