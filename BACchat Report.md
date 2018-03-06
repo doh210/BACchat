@@ -58,11 +58,19 @@ We also wanted to incorporate the word confidence score from the text-to-speech.
 * for a proof of concept, def impressive!
 
 ######Improvements and further work:
-
 * larger training set
+Like any machine learning based system, more data is typically better. Here, because we are able to do the training of the model beforehand, the speed tradeoff is not very severe. Further, with our 60 samples, the time to train was less than 5 seconds.
+
 * display confidence rating rather than a binary
+With the Gaussian Naive Bayes approach that we took, only a binary is returned (drunk, sober). However, if we implemented a different model such as a Support Vector Classification we may be able to get returned confidence scores back. Based on the documentation from the sklearn website, this would take a longer training time (n^4). 
+
 * real test subjects (rather than youtube recordings)
 * introduce "training mode" to add to ml
-* better classification (closer sentence by sentence analysis)
+
+* Better text to speech
+We found in translating some of our audio files that the Watson text-to-speech was not fantastic at producing a true result. Errors in the text-to-speech translate to errors in the tone-analysis which translate to errors in the sober-drunk detection.
+
 * could include content analysis in our training data
+It might be interesting if we are able to take the overal content of what the person is talking about and add that as a feature to this machine learning. Maybe drunk people talk about food and puppies more often than sober people. Content analysis of what the audio clip is talking about is not avaliable with Watson but it would be an interesting avenue to explore.
+
 * While BACchat is still in its early stages, we hope that it can be improved by adding training data, displaying a spectrum of drunkenness, and including a training mode so that it may even be used one day as a viable substitute for breathalyzers.
