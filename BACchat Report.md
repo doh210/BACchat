@@ -12,7 +12,7 @@ BACchat is a web application that uses cognitive computing to deduce whether a p
 
 ######Knowledge sources:
 
-* ML (@sam)
+* ML 
 Because of the large number of machine learning tutorials and support avaliable in python, we decided to do our machine learning in python3 using scikit learn. 
 We followed the tutorial at `https://www.digitalocean.com/community/tutorials/how-to-build-a-machine-learning-classifier-in-python-with-scikit-learn` to get us started. Using this tutorial we were able to structure our data in a similar way. 
 
@@ -29,10 +29,20 @@ A problem that we ran into getting our python machine learning code to interact 
 
 ######Organization (how you planned the effort):
 
-* sam did the ml api
-* elisabeth did a bit of front end styling
-* david and elisabeth collected and analyzed training data
-* david and elisabeth created the video
+* Data collection 
+David and Elisabeth worked on searching the internet for clips of both drunk and sober individuals, converting them to audio files, and then running the data through the application to get the tone analyzed data to train the classifier.
+
+* Machine Learning API and Javascript interaction
+Sam did the work for figuring out how to create a classifier using python and sklearn. He organized the training data into proper file formats so that it could be fed into sklearn. He also set up the python API using flask and handled the interaction of finding of tone analysis information in the Javascript frontend and sending it to the backend. 
+
+* Adopting the application 
+Elisabeth did a bit of the front end styling to help give the app a more customized feel.
+
+* Video
+David and Elisabeth worked on creating the video for the presentation.
+
+* Report
+Elisabeth and Sam worked on organizing the report.
 
 
 ######Difficulties encountered:
