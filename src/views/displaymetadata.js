@@ -25,7 +25,7 @@ var showTimestamp = function(timestamps, confidences) {
       t1 = timestamps[2];
 
   // Show confidence if defined, else 'n/a'
-  var displayConfidence = confidences ? confidences[1].toString().substring(0, 3) : 'n/a';
+  var displayConfidence = confidences ? confidences[1].toString().substring(0, 5) : 'n/a';
   $('#metadataTable > tbody:last-child').append(
       '<tr>'
       + '<td>' + word + '</td>'
