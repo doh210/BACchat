@@ -18,7 +18,7 @@ When the audio clip finishes, BACchat compiles and sends these word confidence r
 
 **Business model & motivation:**
 
-Although breathalyzers already exist, they are not as readily available as an internet-enabled device. This is where BACchat comes in. BACchat uses cognitive computing to deduce whether a person is drunk or sober by their speech. It is better that we use cognitive computing because it allows us our app to more readily transcribe audio as well as break down the various tones and emotions associated with the transcription. Furthermore, we plan on making BACchat a free service that is readily available via the web to anyone from bartenders to undergraduate college students. We envision this application not only
+Although breathalyzers already exist, they are not as readily available as an internet-enabled device. This is where BACchat comes in. BACchat uses cognitive computing to deduce whether a person is drunk or sober by their speech. It is better that we use cognitive computing because it allows us our app to more readily transcribe audio as well as break down the various tones and emotions associated with the transcription. Furthermore, we plan on making BACchat a free service that is readily available via the web to anyone from bartenders to undergraduate college students. We envision this application not only being used by bartenders to prevent serving to overly inebriated individuals but also by the everyday person who might want to check on their friends or cars that test their drivers' sobriety to prevent drunk driving.
 
 **Knowledge sources:**
 
